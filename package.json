@@ -27,7 +27,8 @@
     "tar": "^6.1.11",
     "update-check": "^1.5.4",
     "url-exist": "2.0.2",
-    "validate-npm-package-name": "^3.0.0"
+    "validate-npm-package-name": "^3.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
@@ -103,6 +104,9 @@
     "test": "yarn run test:unit && yarn run test:integration",
     "test:integration": "jest test/integration",
     "test:unit": "jest test/unit",
-    "watch": "ncc build ./src/index.ts --out dist/ --watch"
-  }
+    "watch": "ncc build ./src/index.ts --out dist/ --watch",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
+  },
+  "snyk": true
 }
